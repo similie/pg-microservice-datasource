@@ -2,7 +2,6 @@
 “Because managing PostgreSQL connections should be simple and seamless.”
 
 PO Microservice Datasource is a lightweight, efficient library for handling PostgreSQL connections in microservices. Built with scalability and simplicity in mind, it ensures your microservices can manage database interactions effortlessly.
-
 Powered by TypeORM
 
 ## About
