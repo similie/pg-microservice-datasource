@@ -1,6 +1,6 @@
 {
   "name": "@similie/pg-microservice-datasource",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "dependencies": {
     "@similie/shared-microservice-utils": "^1.1.3",
     "reflect-metadata": "^0.2.2",
