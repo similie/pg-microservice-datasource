@@ -11,6 +11,7 @@ export interface IDataSourceCredentials {
   password?: string;
   database?: string;
   poolsize?: number;
+  synchronize?: boolean;
 }
 /**
  * @class
@@ -28,7 +29,7 @@ export class DataSourceCredentials {
   ) {
     this._credentials = {
       type: 'postgres',
-      synchronize: process.env['NODE_ENV'] !== 'production', // turn off in production
+      synchronize: typeof credentials?.synchronize !== 'undefined' ? credentials?.synchronize : process.env['NODE_ENV'] !== 'production', // turn off in production
       poolSize: credentials?.poolsize || 10,
       entities: this._entities,
       host:
@@ -36,7 +37,7 @@ export class DataSourceCredentials {
         process.env['MANAGEMENT_DATABASE_HOST'] ||
         'localhost',
       port:
-        credentials?.port || process.env['MANAGEMENT_DATABASE_PORT']
+        credentials?.port ? credentials?.port : process.env['MANAGEMENT_DATABASE_PORT']
           ? process.env['MANAGEMENT_DATABASE_PORT']
             ? +process.env['MANAGEMENT_DATABASE_PORT']
             : 5432
